@@ -1,138 +1,409 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DEVXZY — Roblox Developer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>devxzyportpofolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#080808;--surface:#111111;--border:rgba(255,255,255,0.07);--text:#f0f0f0;--muted:#555;--accent:#9b59f5;--accent2:#e040fb;--green:#3be887;--red:#f5603b;--idle:#f0b429;}
-*{margin:0;padding:0;box-sizing:border-box;}
-html,body{width:100%;height:100%;overflow:hidden;}
-body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);}
-body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;}
-.glow-orb{position:fixed;width:600px;height:600px;border-radius:50%;filter:blur(120px);opacity:0.07;pointer-events:none;z-index:0;}
-.orb1{background:var(--accent);top:-200px;right:-100px;animation:floatOrb 8s ease-in-out infinite;}
-.orb2{background:var(--accent2);bottom:-200px;left:-100px;animation:floatOrb 10s ease-in-out infinite reverse;}
-@keyframes floatOrb{0%,100%{transform:translate(0,0);}50%{transform:translate(30px,-30px);}}
+/* ── DARK THEME (default) ── */
+[data-theme="dark"]{
+  --bg:#03060f;
+  --bg2:#07101e;
+  --surface:#0c1a2e;
+  --surface2:#0f2040;
+  --border:#1a3a5c;
+  --border2:#1e4a7a;
+  --text:#d4eaff;
+  --muted:#3d6080;
+  --muted2:#5a88aa;
+  --accent:#00d4ff;
+  --accent2:#0066ff;
+  --accent3:#00ffaa;
+  --green:#00ff88;
+  --red:#ff3d5a;
+  --idle:#ffbb00;
+  --nav-bg:rgba(3,6,15,0.92);
+  --grid-line:rgba(0,212,255,0.03);
+  --glow1:rgba(0,102,255,0.08);
+  --glow2:rgba(0,212,255,0.05);
+  --scanline:rgba(0,0,0,0.12);
+  --toggle-icon:"☀";
+}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:16px 36px;border-bottom:1px solid var(--border);backdrop-filter:blur(20px);background:rgba(8,8,8,0.75);}
-.nav-logo{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:3px;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.nav-links{display:flex;gap:4px;}
-.nav-links button{background:none;border:1px solid transparent;color:var(--muted);font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;padding:7px 14px;border-radius:4px;cursor:pointer;transition:all .2s;text-transform:uppercase;}
-.nav-links button:hover,.nav-links button.active{color:var(--text);border-color:var(--border);background:rgba(255,255,255,0.05);}
+/* ── LIGHT THEME ── */
+[data-theme="light"]{
+  --bg:#f0f6ff;
+  --bg2:#e4eef8;
+  --surface:#ffffff;
+  --surface2:#eaf2ff;
+  --border:#c2d8ef;
+  --border2:#94bde0;
+  --text:#0a1f38;
+  --muted:#7a9ab5;
+  --muted2:#4a7a9b;
+  --accent:#0066cc;
+  --accent2:#0044aa;
+  --accent3:#007a55;
+  --green:#007a55;
+  --red:#cc2233;
+  --idle:#b87000;
+  --nav-bg:rgba(240,246,255,0.92);
+  --grid-line:rgba(0,102,204,0.05);
+  --glow1:rgba(0,102,204,0.06);
+  --glow2:rgba(0,102,204,0.04);
+  --scanline:rgba(0,0,0,0);
+  --toggle-icon:"☽";
+}
 
-/* FOOTER */
-footer{position:fixed;bottom:0;left:0;right:0;z-index:100;text-align:center;padding:12px 20px;border-top:1px solid var(--border);backdrop-filter:blur(20px);background:rgba(8,8,8,0.75);}
-.footer-text{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--muted);}
-.footer-text span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:700;}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{width:100%;height:100%;-webkit-overflow-scrolling:touch;}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);color:var(--text);
+  width:100%;min-height:100%;min-height:100dvh;
+  overflow-x:hidden;overflow-y:auto;
+  -webkit-font-smoothing:antialiased;
+  transition:background .3s,color .3s;
+}
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(var(--grid-line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);
+  background-size:40px 40px;
+  transition:background .3s;
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 80% 50% at 50% 0%,var(--glow1),transparent 70%),
+             radial-gradient(ellipse 60% 40% at 80% 100%,var(--glow2),transparent 70%);
+  transition:background .3s;
+}
+.scanlines{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,var(--scanline) 2px,var(--scanline) 4px);
+  opacity:0.4;transition:opacity .3s;
+}
+[data-theme="light"] .scanlines{opacity:0;}
 
-.section{display:none;position:fixed;inset:0;padding-top:80px;padding-bottom:48px;align-items:center;justify-content:center;flex-direction:column;}
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 16px;height:52px;
+  border-bottom:1px solid var(--border);
+  background:var(--nav-bg);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  transition:background .3s,border-color .3s;
+  gap:8px;
+}
+.nav-logo{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:20px;letter-spacing:4px;color:var(--accent);
+  flex-shrink:0;transition:color .3s;
+}
+[data-theme="dark"] .nav-logo{text-shadow:0 0 20px rgba(0,212,255,0.4);}
+.nav-links{display:flex;gap:1px;flex-shrink:1;overflow:hidden;}
+.nav-links button{
+  background:none;border:none;color:var(--muted2);
+  font-family:'JetBrains Mono',monospace;
+  font-size:8px;font-weight:500;letter-spacing:1.5px;
+  padding:6px 8px;border-radius:2px;cursor:pointer;
+  transition:color .2s;text-transform:uppercase;white-space:nowrap;
+  touch-action:manipulation;
+}
+.nav-links button:hover,.nav-links button.active{color:var(--accent);}
+
+/* THEME TOGGLE */
+.theme-toggle{
+  background:var(--surface);
+  border:1px solid var(--border2);
+  color:var(--muted2);
+  font-size:14px;
+  width:32px;height:32px;
+  border-radius:6px;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  transition:all .2s;
+  touch-action:manipulation;
+}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent);}
+
+/* ── FOOTER ── */
+footer{
+  position:fixed;bottom:0;left:0;right:0;z-index:100;
+  display:flex;justify-content:center;align-items:center;
+  padding:0 24px;height:32px;
+  border-top:1px solid var(--border);
+  background:var(--nav-bg);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  transition:background .3s,border-color .3s;
+}
+.footer-text{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:1.5px;color:var(--muted);}
+
+/* ── SECTIONS ── */
+.section{
+  display:none;position:relative;z-index:1;
+  min-height:100dvh;padding-top:60px;padding-bottom:40px;
+  align-items:center;justify-content:center;flex-direction:column;
+}
 .section.active{display:flex;}
 
-/* HOME */
-.home-inner{max-width:660px;width:100%;display:flex;flex-direction:column;align-items:center;padding:20px 20px 10px;}
-.profile-wrap{position:relative;margin-bottom:20px;}
-.profile-ring{width:126px;height:126px;border-radius:50%;padding:3px;background:conic-gradient(var(--accent),var(--accent2),var(--accent));animation:spinRing 3s linear infinite;}
-@keyframes spinRing{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
-.profile-img{width:100%;height:100%;border-radius:50%;background:#1a1a1a url('assets/profile.jpg') center/cover no-repeat;border:3px solid var(--bg);display:block;}
-.status-badge{position:absolute;bottom:4px;right:4px;width:22px;height:22px;border-radius:50%;border:3px solid var(--bg);background:#555;transition:background .3s;}
-.status-badge.online{background:var(--green);}
+/* ── HOME ── */
+.home-inner{
+  max-width:420px;width:100%;
+  display:flex;flex-direction:column;align-items:center;
+  padding:16px 16px 8px;
+}
+
+.profile-wrap{position:relative;margin-bottom:18px;}
+.profile-ring-wrap{
+  width:104px;height:104px;
+  position:relative;display:flex;align-items:center;justify-content:center;
+}
+.profile-ring-wrap::before{
+  content:'';position:absolute;inset:0;border-radius:50%;
+  background:conic-gradient(var(--accent),var(--accent2),var(--accent3),var(--accent));
+  animation:spinRing 4s linear infinite;
+}
+@keyframes spinRing{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.profile-img{
+  position:relative;z-index:1;
+  width:96px;height:96px;border-radius:50%;
+  background:var(--surface2) url('assets/profile.jpg') center/cover no-repeat;
+  border:2px solid var(--bg);
+  transition:border-color .3s;
+}
+.status-badge{
+  position:absolute;bottom:3px;right:3px;z-index:2;
+  width:18px;height:18px;border-radius:50%;
+  border:2.5px solid var(--bg);background:var(--muted);transition:all .3s;
+}
+.status-badge.online{background:#00cc66;}
 .status-badge.idle{background:var(--idle);}
 .status-badge.dnd{background:var(--red);}
-.profile-name{font-size:38px;font-weight:900;letter-spacing:-1px;line-height:1;margin-bottom:5px;}
-.profile-title{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px;}
-.profile-skills{font-family:'Space Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;margin-bottom:16px;}
-.typing-box{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 16px;font-family:'Space Mono',monospace;font-size:12px;min-height:40px;width:100%;max-width:390px;text-align:left;margin-bottom:20px;}
-.typing-box::before{content:'> ';color:var(--accent);}
-.cursor{display:inline-block;width:7px;height:13px;background:var(--accent);margin-left:2px;vertical-align:middle;animation:blink .7s step-end infinite;}
+[data-theme="dark"] .status-badge.online{box-shadow:0 0 8px #00cc66;}
+[data-theme="dark"] .status-badge.idle{box-shadow:0 0 8px var(--idle);}
+[data-theme="dark"] .status-badge.dnd{box-shadow:0 0 8px var(--red);}
+
+.profile-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:44px;letter-spacing:6px;
+  line-height:1;margin-bottom:5px;text-align:center;
+  transition:color .3s;
+}
+[data-theme="dark"] .profile-name{text-shadow:0 0 30px rgba(0,212,255,0.2);}
+.profile-title{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;letter-spacing:2.5px;color:var(--accent);
+  margin-bottom:3px;text-align:center;transition:color .3s;
+}
+.profile-skills{
+  font-family:'JetBrains Mono',monospace;
+  font-size:8px;color:var(--muted);letter-spacing:2.5px;
+  margin-bottom:14px;text-align:center;
+}
+
+/* TYPING BOX */
+.typing-box{
+  width:100%;max-width:340px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-left:2px solid var(--accent);
+  border-radius:0 4px 4px 0;
+  padding:9px 12px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;min-height:36px;margin-bottom:12px;
+  transition:background .3s,border-color .3s;
+}
+.typing-prompt{color:var(--accent3);margin-right:5px;font-size:10px;}
+.cursor{
+  display:inline-block;width:6px;height:12px;
+  background:var(--accent);margin-left:1px;
+  vertical-align:middle;animation:blink .7s step-end infinite;
+}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
-.discord-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px 16px;width:100%;max-width:390px;margin-bottom:14px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:border-color .2s,transform .15s;text-decoration:none;color:inherit;}
-.discord-card:hover{border-color:rgba(155,89,245,0.45);transform:translateY(-2px);}
-.discord-avatar{width:42px;height:42px;border-radius:50%;flex-shrink:0;position:relative;background:#1a1a1a url('assets/profile.jpg') center/cover no-repeat;}
-.discord-avatar-status{position:absolute;bottom:-1px;right:-1px;width:13px;height:13px;border-radius:50%;border:2.5px solid var(--surface);background:#555;transition:background .3s;}
-.discord-avatar-status.online{background:var(--green);}
-.discord-avatar-status.idle{background:var(--idle);}
-.discord-avatar-status.dnd{background:var(--red);}
-.discord-info{flex:1;min-width:0;}
-.discord-name{font-size:13px;font-weight:800;margin-bottom:2px;}
-.discord-status-text{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.discord-activity{font-family:'Space Mono',monospace;font-size:10px;color:var(--accent);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.discord-icon{width:20px;height:20px;opacity:0.3;flex-shrink:0;}
-.roblox-btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:11px 32px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;text-decoration:none;transition:all .2s;}
-.roblox-btn img{width:20px;height:20px;border-radius:4px;object-fit:contain;}
-.roblox-btn:hover{border-color:rgba(155,89,245,0.5);background:rgba(155,89,245,0.08);transform:translateY(-2px);}
 
-/* MAINTENANCE */
-.maint-inner{max-width:520px;width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;padding:20px;}
-.maint-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(155,89,245,0.08);border:1px solid rgba(155,89,245,0.25);border-radius:20px;padding:6px 16px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--accent);margin-bottom:20px;}
-.maint-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:blink .9s step-end infinite;}
-.maint-icon-wrap{margin-bottom:28px;}
-.maint-gear-outer{width:90px;height:90px;border-radius:50%;border:2px solid rgba(155,89,245,0.25);display:flex;align-items:center;justify-content:center;animation:spinRing 6s linear infinite;}
-.maint-gear-inner{width:58px;height:58px;border-radius:50%;border:2px solid rgba(224,64,251,0.35);display:flex;align-items:center;justify-content:center;animation:spinRing 4s linear infinite reverse;}
-.maint-gear-core{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));}
-.maint-title{font-size:30px;font-weight:900;letter-spacing:-0.5px;margin-bottom:10px;line-height:1.1;}
-.maint-title span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.maint-desc{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:28px;max-width:380px;}
-.maint-progress{width:100%;max-width:320px;height:3px;background:rgba(255,255,255,0.05);border-radius:10px;overflow:hidden;margin-bottom:28px;}
-.maint-progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:10px;animation:progressAnim 3s ease-in-out infinite;}
-@keyframes progressAnim{0%{width:0%;opacity:1;}70%{width:85%;opacity:1;}85%{width:85%;opacity:0.5;}100%{width:0%;opacity:1;}}
-.maint-by{font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,0.12);letter-spacing:3px;border-top:1px solid var(--border);padding-top:16px;width:100%;}
-.maint-by span{color:rgba(155,89,245,0.5);}
+/* DISCORD CARD */
+.discord-card{
+  width:100%;max-width:340px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:6px;padding:11px 13px;margin-bottom:10px;
+  display:flex;align-items:center;gap:11px;cursor:pointer;
+  transition:border-color .2s,background .2s;
+  text-decoration:none;color:inherit;
+  -webkit-user-select:none;user-select:none;
+  touch-action:manipulation;
+}
+.discord-card:hover,.discord-card:active{border-color:var(--accent);background:var(--surface2);}
+.dc-avatar{
+  width:38px;height:38px;border-radius:50%;flex-shrink:0;position:relative;
+  background:var(--surface2) url('assets/profile.jpg') center/cover no-repeat;
+  border:1px solid var(--border2);
+}
+.dc-avatar-status{
+  position:absolute;bottom:-1px;right:-1px;
+  width:11px;height:11px;border-radius:50%;
+  border:2px solid var(--surface);background:var(--muted);transition:all .3s;
+}
+.dc-avatar-status.online{background:#00cc66;}
+.dc-avatar-status.idle{background:var(--idle);}
+.dc-avatar-status.dnd{background:var(--red);}
+[data-theme="dark"] .dc-avatar-status.online{box-shadow:0 0 4px #00cc66;}
+.dc-info{flex:1;min-width:0;}
+.dc-name{font-size:12px;font-weight:600;margin-bottom:2px;}
+.dc-status{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.dc-act{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--accent);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.dc-svg{width:16px;height:16px;opacity:0.25;flex-shrink:0;color:var(--text);}
 
-/* DISCORD MODAL */
-.dc-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.78);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:center;z-index:500;opacity:0;pointer-events:none;transition:opacity .25s;}
+/* ROBLOX BTN */
+.roblox-btn{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  padding:10px 26px;border-radius:4px;
+  border:1px solid var(--border2);background:transparent;color:var(--text);
+  font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:2px;
+  cursor:pointer;text-decoration:none;transition:all .2s;
+  -webkit-user-select:none;user-select:none;touch-action:manipulation;
+  width:100%;max-width:340px;justify-content:center;
+}
+.roblox-btn:hover,.roblox-btn:active{border-color:var(--accent3);color:var(--accent3);}
+.roblox-btn img{width:17px;height:17px;border-radius:3px;object-fit:contain;}
+
+/* ── MAINTENANCE ── */
+.maint-inner{
+  max-width:420px;width:100%;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  padding:16px 20px;
+}
+.maint-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  border:1px solid var(--border2);border-radius:2px;
+  padding:5px 14px;
+  font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2.5px;
+  color:var(--accent);margin-bottom:22px;background:var(--surface);
+  transition:all .3s;
+}
+.maint-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 1s step-end infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.maint-icon-wrap{margin-bottom:22px;}
+.maint-rings{position:relative;width:76px;height:76px;display:flex;align-items:center;justify-content:center;}
+.ring1{position:absolute;inset:0;border-radius:50%;border:1px solid var(--accent);opacity:0.4;animation:spinRing 6s linear infinite;}
+.ring2{position:absolute;inset:12px;border-radius:50%;border:1px solid var(--accent2);opacity:0.5;animation:spinRing 3s linear infinite reverse;}
+.ring-core{width:22px;height:22px;border-radius:50%;background:var(--accent);opacity:0.7;}
+[data-theme="dark"] .ring-core{box-shadow:0 0 16px var(--accent);}
+.maint-title{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:2px;margin-bottom:10px;line-height:1.1;}
+.maint-title span{color:var(--accent);}
+.maint-desc{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted2);line-height:1.8;margin-bottom:22px;max-width:300px;}
+.maint-progress{width:100%;max-width:260px;height:2px;background:var(--surface2);border-radius:2px;overflow:hidden;margin-bottom:22px;}
+.maint-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--accent2),var(--accent));animation:prog 3s ease-in-out infinite;}
+@keyframes prog{0%{width:0%;opacity:1}70%{width:85%;opacity:1}85%{width:85%;opacity:0.4}100%{width:0%;opacity:1}}
+.maint-by{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:1.5px;border-top:1px solid var(--border);padding-top:12px;width:100%;transition:all .3s;}
+.maint-by span{color:var(--accent);}
+
+/* ── DISCORD MODAL ── */
+.dc-modal-overlay{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,0.7);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  display:flex;align-items:center;justify-content:center;
+  z-index:500;padding:16px;
+  opacity:0;pointer-events:none;transition:opacity .2s;
+}
 .dc-modal-overlay.open{opacity:1;pointer-events:all;}
-.dc-modal{background:#18181c;border:1px solid rgba(255,255,255,0.1);border-radius:18px;width:308px;overflow:visible;transform:translateY(22px) scale(0.96);transition:transform .3s cubic-bezier(.34,1.56,.64,1);box-shadow:0 32px 80px rgba(0,0,0,0.7);position:relative;}
-.dc-modal-overlay.open .dc-modal{transform:translateY(0) scale(1);}
-.dc-banner-wrap{border-radius:18px 18px 0 0;overflow:hidden;width:100%;height:86px;}
-.dc-banner{width:100%;height:100%;background:linear-gradient(135deg,var(--accent),var(--accent2));}
-.dc-close-btn{position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.55);border:none;color:white;font-size:12px;width:25px;height:25px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:20;}
-.dc-close-btn:hover{background:rgba(0,0,0,0.85);}
-.dc-avatar-wrap{position:relative;margin:-40px 0 0 16px;width:76px;height:76px;z-index:10;}
-.dc-modal-avatar{width:76px;height:76px;border-radius:50%;border:5px solid #18181c;background:#222 center/cover no-repeat;display:block;}
-.dc-modal-avatar-status{position:absolute;bottom:3px;right:3px;width:17px;height:17px;border-radius:50%;border:3px solid #18181c;background:#555;transition:background .3s;}
-.dc-modal-avatar-status.online{background:var(--green);}
-.dc-modal-avatar-status.idle{background:var(--idle);}
-.dc-modal-avatar-status.dnd{background:var(--red);}
-.dc-modal-body{padding:8px 16px 18px;}
-.dc-modal-name{font-size:18px;font-weight:900;margin-bottom:2px;}
-.dc-modal-tag{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:12px;}
-.dc-modal-divider{width:100%;height:1px;background:rgba(255,255,255,0.06);margin:11px 0;}
-.dc-modal-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-bottom:6px;}
-.dc-modal-status-row{display:flex;align-items:center;gap:8px;margin-bottom:4px;}
-.dc-status-dot{width:10px;height:10px;border-radius:50%;background:#555;flex-shrink:0;}
-.dc-status-dot.online{background:var(--green);}
-.dc-status-dot.idle{background:var(--idle);}
-.dc-status-dot.dnd{background:var(--red);}
-.dc-modal-status-text{font-size:13px;font-weight:700;}
-.dc-modal-custom{font-family:'Space Mono',monospace;font-size:11px;color:#777;margin-top:4px;min-height:14px;}
-.dc-modal-activity{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;padding:11px;margin-top:4px;}
-.dc-activity-name{font-size:12px;font-weight:800;color:var(--accent);margin-bottom:2px;}
-.dc-activity-detail{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);}
+.dc-modal{
+  background:var(--surface);border:1px solid var(--border2);
+  border-radius:8px;width:100%;max-width:285px;
+  transform:scale(0.95) translateY(10px);
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1),background .3s,border-color .3s;
+  position:relative;overflow:visible;
+}
+.dc-modal-overlay.open .dc-modal{transform:scale(1) translateY(0);}
+.dc-banner-wrap{border-radius:7px 7px 0 0;overflow:hidden;width:100%;height:72px;}
+.dc-banner{width:100%;height:100%;background:linear-gradient(135deg,var(--accent2),var(--accent));}
+.dc-close-btn{
+  position:absolute;top:8px;right:8px;z-index:20;
+  background:rgba(0,0,0,0.5);border:1px solid var(--border);
+  color:var(--muted2);font-size:11px;
+  width:24px;height:24px;border-radius:3px;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  font-family:'JetBrains Mono',monospace;transition:all .2s;touch-action:manipulation;
+}
+.dc-close-btn:hover{color:var(--text);}
+.dc-av-wrap{position:relative;margin:-34px 0 0 13px;width:66px;height:66px;z-index:10;}
+.dc-modal-av{width:66px;height:66px;border-radius:50%;border:4px solid var(--surface);background:var(--surface2) center/cover no-repeat;display:block;transition:border-color .3s;}
+.dc-modal-av-status{position:absolute;bottom:2px;right:2px;width:14px;height:14px;border-radius:50%;border:3px solid var(--surface);background:var(--muted);transition:all .3s;}
+.dc-modal-av-status.online{background:#00cc66;}
+.dc-modal-av-status.idle{background:var(--idle);}
+.dc-modal-av-status.dnd{background:var(--red);}
+[data-theme="dark"] .dc-modal-av-status.online{box-shadow:0 0 6px #00cc66;}
+.dc-modal-body{padding:5px 13px 15px;}
+.dc-modal-name{font-size:15px;font-weight:600;margin-bottom:1px;}
+.dc-modal-tag{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted2);margin-bottom:9px;}
+.dc-divider{width:100%;height:1px;background:var(--border);margin:9px 0;transition:background .3s;}
+.dc-lbl{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:2.5px;color:var(--muted);text-transform:uppercase;margin-bottom:5px;}
+.dc-st-row{display:flex;align-items:center;gap:7px;margin-bottom:3px;}
+.dc-dot{width:8px;height:8px;border-radius:50%;background:var(--muted);flex-shrink:0;}
+.dc-dot.online{background:#00cc66;}
+.dc-dot.idle{background:var(--idle);}
+.dc-dot.dnd{background:var(--red);}
+[data-theme="dark"] .dc-dot.online{box-shadow:0 0 5px #00cc66;}
+.dc-st-txt{font-size:12px;font-weight:500;}
+.dc-custom{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted2);margin-top:3px;min-height:13px;}
+.dc-act-box{background:var(--surface2);border:1px solid var(--border);border-left:2px solid var(--accent);border-radius:0 4px 4px 0;padding:8px;margin-top:4px;transition:all .3s;}
+.dc-act-name{font-size:11px;font-weight:600;color:var(--accent);margin-bottom:2px;}
+.dc-act-detail{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted2);}
 
-/* RIGHT CLICK */
-#rightClickOverlay{position:fixed;inset:0;background:rgba(0,0,0,0.97);display:none;justify-content:center;align-items:center;flex-direction:column;z-index:9999;cursor:pointer;}
-.rc-title{font-family:'Space Mono',monospace;font-size:48px;font-weight:700;color:var(--red);border-bottom:2px solid rgba(255,255,255,0.08);padding-bottom:12px;margin-bottom:12px;}
-.rc-sub{font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:2px;}
+/* ── RIGHT CLICK ── */
+#rcOverlay{
+  position:fixed;inset:0;background:rgba(0,0,0,0.97);
+  display:none;justify-content:center;align-items:center;flex-direction:column;
+  z-index:9999;cursor:pointer;padding:20px;text-align:center;
+}
+.rc-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,10vw,60px);letter-spacing:4px;color:#ff3d5a;margin-bottom:8px;}
+.rc-sub{font-family:'JetBrains Mono',monospace;font-size:10px;color:#3d6080;letter-spacing:2px;}
 
-/* FADE IN */
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
-.home-inner>*,.maint-inner>*{animation:fadeUp .5s ease both;}
-.home-inner>*:nth-child(1),.maint-inner>*:nth-child(1){animation-delay:.05s;}
-.home-inner>*:nth-child(2),.maint-inner>*:nth-child(2){animation-delay:.10s;}
-.home-inner>*:nth-child(3),.maint-inner>*:nth-child(3){animation-delay:.15s;}
-.home-inner>*:nth-child(4),.maint-inner>*:nth-child(4){animation-delay:.20s;}
-.home-inner>*:nth-child(5),.maint-inner>*:nth-child(5){animation-delay:.25s;}
-.home-inner>*:nth-child(6),.maint-inner>*:nth-child(6){animation-delay:.30s;}
-.home-inner>*:nth-child(7),.maint-inner>*:nth-child(7){animation-delay:.35s;}
+/* ── FADE IN ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+.home-inner>*,.maint-inner>*{animation:fadeUp .4s ease both;}
+.home-inner>*:nth-child(1),.maint-inner>*:nth-child(1){animation-delay:.04s;}
+.home-inner>*:nth-child(2),.maint-inner>*:nth-child(2){animation-delay:.08s;}
+.home-inner>*:nth-child(3),.maint-inner>*:nth-child(3){animation-delay:.12s;}
+.home-inner>*:nth-child(4),.maint-inner>*:nth-child(4){animation-delay:.16s;}
+.home-inner>*:nth-child(5),.maint-inner>*:nth-child(5){animation-delay:.20s;}
+.home-inner>*:nth-child(6),.maint-inner>*:nth-child(6){animation-delay:.24s;}
+.home-inner>*:nth-child(7),.maint-inner>*:nth-child(7){animation-delay:.28s;}
+
+/* ── MOBILE ── */
+@media(max-width:430px){
+  nav{padding:0 10px;gap:6px;}
+  .nav-logo{font-size:17px;letter-spacing:3px;}
+  .nav-links button{font-size:7.5px;padding:5px 6px;letter-spacing:1px;}
+  .theme-toggle{width:28px;height:28px;font-size:13px;}
+
+  .home-inner{padding:12px 12px 6px;}
+  .profile-ring-wrap{width:92px;height:92px;}
+  .profile-img{width:84px;height:84px;}
+  .profile-name{font-size:36px;letter-spacing:4px;}
+  .typing-box,.discord-card,.roblox-btn{max-width:100%;}
+
+  .maint-inner{padding:12px 14px;}
+  .maint-title{font-size:26px;}
+
+  .dc-modal{max-width:calc(100vw - 28px);}
+}
+@media(max-width:360px){
+  .nav-links button{font-size:7px;padding:5px 5px;}
+  .profile-name{font-size:30px;}
+  .profile-ring-wrap{width:80px;height:80px;}
+  .profile-img{width:72px;height:72px;}
+}
 </style>
 </head>
 <body>
-
-<div class="glow-orb orb1"></div>
-<div class="glow-orb orb2"></div>
+<div class="scanlines"></div>
 
 <nav>
   <div class="nav-logo">DEVXZY</div>
@@ -142,122 +413,114 @@ footer{position:fixed;bottom:0;left:0;right:0;z-index:100;text-align:center;padd
     <button onclick="showSection('experience',this)">Experience</button>
     <button onclick="showSection('projects',this)">Projects</button>
   </div>
+  <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle theme">☀</button>
 </nav>
 
 <!-- HOME -->
 <section class="section active" id="home">
   <div class="home-inner">
     <div class="profile-wrap">
-      <div class="profile-ring"><div class="profile-img"></div></div>
+      <div class="profile-ring-wrap">
+        <div class="profile-img"></div>
+      </div>
       <div class="status-badge" id="statusBadge"></div>
     </div>
     <div class="profile-name">DEVXZY</div>
     <div class="profile-title">ROBLOX DEVELOPER</div>
-    <div class="profile-skills">MABAIT</div>
-    <div class="typing-box"><span id="typingText"></span><span class="cursor"></span></div>
+    <div class="profile-skills">~ MABAIT ~</div>
+    <div class="typing-box">
+      <span class="typing-prompt">/</span><span id="typingText"></span><span class="cursor"></span>
+    </div>
     <div class="discord-card" onclick="openDcModal()">
-      <div class="discord-avatar" id="dcAvatar">
-        <div class="discord-avatar-status" id="dcAvatarStatus"></div>
+      <div class="dc-avatar" id="dcAvatar">
+        <div class="dc-avatar-status" id="dcAvatarStatus"></div>
       </div>
-      <div class="discord-info">
-        <div class="discord-name" id="dcName">DEVXZY</div>
-        <div class="discord-status-text" id="dcStatusText">Loading...</div>
-        <div class="discord-activity" id="dcActivity"></div>
+      <div class="dc-info">
+        <div class="dc-name" id="dcName">DEVXZY</div>
+        <div class="dc-status" id="dcStatusText">Loading...</div>
+        <div class="dc-act" id="dcActivity"></div>
       </div>
-      <svg class="discord-icon" viewBox="0 0 127.14 96.36" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <svg class="dc-svg" viewBox="0 0 127.14 96.36" fill="currentColor">
         <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
       </svg>
     </div>
-    <a class="roblox-btn" href="https://www.roblox.com/users/8289173194/profile" target="_blank">
-      <img src="assets/roblox.png" alt="Roblox"> ROBLOX
+    <a class="roblox-btn" href="https://www.roblox.com/users/8289173194/profile" target="_blank" rel="noopener">
+      <img src="assets/roblox.png" alt="Roblox"> ROBLOX PROFILE
     </a>
   </div>
 </section>
 
-<!-- ABOUT — MAINTENANCE -->
+<!-- ABOUT -->
 <section class="section" id="about">
   <div class="maint-inner">
     <div class="maint-badge"><div class="maint-dot"></div>UNDER MAINTENANCE</div>
     <div class="maint-icon-wrap">
-      <div class="maint-gear-outer">
-        <div class="maint-gear-inner">
-          <div class="maint-gear-core"></div>
-        </div>
-      </div>
+      <div class="maint-rings"><div class="ring1"></div><div class="ring2"></div><div class="ring-core"></div></div>
     </div>
-    <div class="maint-title">About Me is<br><span>Coming Soon</span></div>
+    <div class="maint-title">ABOUT ME IS<br><span>COMING SOON</span></div>
     <div class="maint-desc">This section is currently being worked on.<br>Check back soon for updates!</div>
-    <div class="maint-progress"><div class="maint-progress-bar"></div></div>
+    <div class="maint-progress"><div class="maint-bar"></div></div>
     <div class="maint-by">MAINTAINED BY <span>DEVXZY</span></div>
   </div>
 </section>
 
-<!-- EXPERIENCE — MAINTENANCE -->
+<!-- EXPERIENCE -->
 <section class="section" id="experience">
   <div class="maint-inner">
     <div class="maint-badge"><div class="maint-dot"></div>UNDER MAINTENANCE</div>
     <div class="maint-icon-wrap">
-      <div class="maint-gear-outer">
-        <div class="maint-gear-inner">
-          <div class="maint-gear-core"></div>
-        </div>
-      </div>
+      <div class="maint-rings"><div class="ring1"></div><div class="ring2"></div><div class="ring-core"></div></div>
     </div>
-    <div class="maint-title">Experience is<br><span>Coming Soon</span></div>
+    <div class="maint-title">EXPERIENCE IS<br><span>COMING SOON</span></div>
     <div class="maint-desc">This section is currently being worked on.<br>Check back soon for updates!</div>
-    <div class="maint-progress"><div class="maint-progress-bar"></div></div>
+    <div class="maint-progress"><div class="maint-bar"></div></div>
     <div class="maint-by">MAINTAINED BY <span>DEVXZY</span></div>
   </div>
 </section>
 
-<!-- PROJECTS — MAINTENANCE -->
+<!-- PROJECTS -->
 <section class="section" id="projects">
   <div class="maint-inner">
     <div class="maint-badge"><div class="maint-dot"></div>UNDER MAINTENANCE</div>
     <div class="maint-icon-wrap">
-      <div class="maint-gear-outer">
-        <div class="maint-gear-inner">
-          <div class="maint-gear-core"></div>
-        </div>
-      </div>
+      <div class="maint-rings"><div class="ring1"></div><div class="ring2"></div><div class="ring-core"></div></div>
     </div>
-    <div class="maint-title">Projects is<br><span>Coming Soon</span></div>
+    <div class="maint-title">PROJECTS IS<br><span>COMING SOON</span></div>
     <div class="maint-desc">This section is currently being worked on.<br>Check back soon for updates!</div>
-    <div class="maint-progress"><div class="maint-progress-bar"></div></div>
+    <div class="maint-progress"><div class="maint-bar"></div></div>
     <div class="maint-by">MAINTAINED BY <span>DEVXZY</span></div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-text">© 2026 <span>DEVXZY</span> — ALL RIGHTS RESERVED.</div>
+  <div class="footer-text">© 2026 DEVXZY — ALL RIGHTS RESERVED</div>
 </footer>
 
 <!-- DISCORD MODAL -->
-<div class="dc-modal-overlay" id="dcModal" onclick="closeDcModal(event)">
+<div class="dc-modal-overlay" id="dcModal">
   <div class="dc-modal">
     <div class="dc-banner-wrap"><div class="dc-banner" id="dcBanner"></div></div>
-    <button class="dc-close-btn" onclick="document.getElementById('dcModal').classList.remove('open')">✕</button>
-    <div class="dc-avatar-wrap">
-      <div class="dc-modal-avatar" id="dcModalAvatar"></div>
-      <div class="dc-modal-avatar-status" id="dcModalStatus"></div>
+    <button class="dc-close-btn" id="dcCloseBtn">✕</button>
+    <div class="dc-av-wrap">
+      <div class="dc-modal-av" id="dcModalAvatar"></div>
+      <div class="dc-modal-av-status" id="dcModalStatus"></div>
     </div>
     <div class="dc-modal-body">
       <div class="dc-modal-name" id="dcModalName">DEVXZY</div>
       <div class="dc-modal-tag" id="dcModalTag">@devxzy</div>
-      <div class="dc-modal-divider"></div>
-      <div class="dc-modal-label">Discord Status</div>
-      <div class="dc-modal-status-row">
-        <div class="dc-status-dot" id="dcModalDot"></div>
-        <div class="dc-modal-status-text" id="dcModalStatusLabel">Offline</div>
+      <div class="dc-divider"></div>
+      <div class="dc-lbl">Discord Status</div>
+      <div class="dc-st-row">
+        <div class="dc-dot" id="dcModalDot"></div>
+        <div class="dc-st-txt" id="dcModalStatusLabel">Offline</div>
       </div>
-      <div class="dc-modal-custom" id="dcModalCustom"></div>
-      <div class="dc-modal-divider" id="dcActivityDivider" style="display:none"></div>
-      <div id="dcActivitySection" style="display:none">
-        <div class="dc-modal-label">Currently Playing</div>
-        <div class="dc-modal-activity">
-          <div class="dc-activity-name" id="dcActivityName"></div>
-          <div class="dc-activity-detail" id="dcActivityDetail"></div>
+      <div class="dc-custom" id="dcModalCustom"></div>
+      <div class="dc-divider" id="dcActDivider" style="display:none"></div>
+      <div id="dcActSection" style="display:none">
+        <div class="dc-lbl">Currently Playing</div>
+        <div class="dc-act-box">
+          <div class="dc-act-name" id="dcActName"></div>
+          <div class="dc-act-detail" id="dcActDetail"></div>
         </div>
       </div>
     </div>
@@ -265,116 +528,135 @@ footer{position:fixed;bottom:0;left:0;right:0;z-index:100;text-align:center;padd
 </div>
 
 <!-- RIGHT CLICK -->
-<div id="rightClickOverlay" onclick="this.style.display='none'">
+<div id="rcOverlay">
   <div class="rc-title">OPPS?</div>
-  <div class="rc-sub">THIS CODE IS POWERED BY DEVXZY</div>
+  <div class="rc-sub">HMMM</div>
 </div>
 
 <script>
-function showSection(id, btn) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
+/* ── THEME ── */
+function toggleTheme(){
+  const html=document.documentElement;
+  const isDark=html.getAttribute('data-theme')==='dark';
+  const next=isDark?'light':'dark';
+  html.setAttribute('data-theme',next);
+  document.getElementById('themeToggle').textContent=isDark?'☽':'☀';
+  try{localStorage.setItem('devxzy-theme',next);}catch(e){}
+}
+(function(){
+  try{
+    const saved=localStorage.getItem('devxzy-theme');
+    if(saved){
+      document.documentElement.setAttribute('data-theme',saved);
+      document.getElementById('themeToggle').textContent=saved==='dark'?'☀':'☽';
+    }
+  }catch(e){}
+})();
+
+/* ── SECTIONS ── */
+function showSection(id,btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-links button').forEach(b=>b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   btn.classList.add('active');
+  window.scrollTo(0,0);
 }
 
-const lines = ["Welcome To My Portfolio!", "Available for Roblox projects!", "DM FOR INQUIRE!"];
-let li = 0, ci = 0, erasing = false;
-const typEl = document.getElementById('typingText');
-function tick() {
-  const line = lines[li];
-  if (!erasing) {
-    typEl.textContent = line.substring(0, ++ci);
-    if (ci === line.length) { erasing = true; setTimeout(tick, 2000); return; }
-    setTimeout(tick, 70);
-  } else {
-    typEl.textContent = line.substring(0, --ci);
-    if (ci === 0) { erasing = false; li = (li + 1) % lines.length; setTimeout(tick, 300); return; }
-    setTimeout(tick, 35);
+/* ── TYPING ── */
+const lines=["Welcome To My Portfolio!","Available for Roblox projects!","DM FOR INQUIRE!"];
+let li=0,ci=0,erasing=false;
+const typEl=document.getElementById('typingText');
+function tick(){
+  const line=lines[li];
+  if(!erasing){
+    typEl.textContent=line.substring(0,++ci);
+    if(ci===line.length){erasing=true;setTimeout(tick,2000);return;}
+    setTimeout(tick,70);
+  }else{
+    typEl.textContent=line.substring(0,--ci);
+    if(ci===0){erasing=false;li=(li+1)%lines.length;setTimeout(tick,300);return;}
+    setTimeout(tick,35);
   }
 }
 tick();
 
-const DISCORD_USER_ID = "1380267295816945757";
-
-function applyStatus(s) {
-  const map = { online: "online", idle: "idle", dnd: "dnd", offline: "offline" };
-  const labels = { online: "Online", idle: "Idle", dnd: "Do Not Disturb", offline: "Offline" };
-  const cls = map[s] || "offline";
-  ['statusBadge', 'dcAvatarStatus', 'dcModalDot', 'dcModalStatus'].forEach(id => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.className = el.className.replace(/\b(online|idle|dnd|offline)\b/g, '').trim();
-    el.classList.add(cls);
+/* ── LANYARD ── */
+const UID="1380267295816945757";
+function applyStatus(s){
+  const labels={online:"Online",idle:"Idle",dnd:"Do Not Disturb",offline:"Offline"};
+  const cls=['online','idle','dnd'].includes(s)?s:'offline';
+  ['statusBadge','dcAvatarStatus','dcModalDot','dcModalStatus'].forEach(id=>{
+    const el=document.getElementById(id);if(!el)return;
+    el.classList.remove('online','idle','dnd');
+    if(cls!=='offline')el.classList.add(cls);
   });
-  return labels[s] || "Offline";
+  return labels[s]||"Offline";
 }
-
-function updateLanyard(d) {
-  const user = d.discord_user;
-  const label = applyStatus(d.discord_status || 'offline');
-  document.getElementById('dcName').textContent = user.global_name || user.username;
-  const cs = (d.activities || []).find(a => a.type === 4);
-  document.getElementById('dcStatusText').textContent = cs?.state ? `${cs.emoji?.name || ''} ${cs.state}`.trim() : label;
-  const ga = (d.activities || []).find(a => a.type === 0);
-  document.getElementById('dcActivity').textContent = ga ? `▶ ${ga.name}` : '';
-  if (user.avatar) {
-    document.getElementById('dcAvatar').style.backgroundImage = `url('https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=128')`;
+function updateLanyard(d){
+  const u=d.discord_user;
+  const label=applyStatus(d.discord_status||'offline');
+  document.getElementById('dcName').textContent=u.global_name||u.username;
+  const cs=(d.activities||[]).find(a=>a.type===4);
+  document.getElementById('dcStatusText').textContent=cs?.state?`${cs.emoji?.name||''} ${cs.state}`.trim():label;
+  const ga=(d.activities||[]).find(a=>a.type===0);
+  document.getElementById('dcActivity').textContent=ga?`▶ ${ga.name}`:'';
+  if(u.avatar){
+    const av=`https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.png?size=128`;
+    document.getElementById('dcAvatar').style.backgroundImage=`url('${av}')`;
+    document.getElementById('dcModalAvatar').style.backgroundImage=`url('${av}')`;
+    const b=document.getElementById('dcBanner');
+    b.style.backgroundImage=`url('https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.png?size=512')`;
+    b.style.backgroundSize='cover';b.style.backgroundPosition='center';
+    b.style.filter='blur(8px) brightness(0.3) saturate(1.5)';
+    b.style.transform='scale(1.2)';
   }
-  document.getElementById('dcModalName').textContent = user.global_name || user.username;
-  document.getElementById('dcModalTag').textContent = `@${user.username}`;
-  document.getElementById('dcModalStatusLabel').textContent = label;
-  document.getElementById('dcModalCustom').textContent = cs?.state ? `${cs.emoji?.name || ''} ${cs.state}`.trim() : '';
-  if (user.avatar) {
-    document.getElementById('dcModalAvatar').style.backgroundImage = `url('https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=128')`;
-    const b = document.getElementById('dcBanner');
-    b.style.backgroundImage = `url('https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=512')`;
-    b.style.backgroundSize = 'cover';
-    b.style.backgroundPosition = 'center';
-    b.style.filter = 'blur(8px) brightness(0.38) saturate(1.3)';
-    b.style.transform = 'scale(1.18)';
-  }
-  const actSec = document.getElementById('dcActivitySection');
-  const actDiv = document.getElementById('dcActivityDivider');
-  if (ga) {
-    actSec.style.display = 'block'; actDiv.style.display = 'block';
-    document.getElementById('dcActivityName').textContent = ga.name;
-    document.getElementById('dcActivityDetail').textContent = [ga.details, ga.state].filter(Boolean).join(' · ');
-  } else {
-    actSec.style.display = 'none'; actDiv.style.display = 'none';
-  }
+  document.getElementById('dcModalName').textContent=u.global_name||u.username;
+  document.getElementById('dcModalTag').textContent=`@${u.username}`;
+  document.getElementById('dcModalStatusLabel').textContent=label;
+  document.getElementById('dcModalCustom').textContent=cs?.state?`${cs.emoji?.name||''} ${cs.state}`.trim():'';
+  const aS=document.getElementById('dcActSection'),aD=document.getElementById('dcActDivider');
+  if(ga){
+    aS.style.display='block';aD.style.display='block';
+    document.getElementById('dcActName').textContent=ga.name;
+    document.getElementById('dcActDetail').textContent=[ga.details,ga.state].filter(Boolean).join(' · ');
+  }else{aS.style.display='none';aD.style.display='none';}
 }
-
-function fetchLanyard() {
-  fetch(`https://api.lanyard.rest/v1/users/${DISCORD_USER_ID}`)
-    .then(r => r.json())
-    .then(res => { if (res.success) updateLanyard(res.data); })
-    .catch(() => { document.getElementById('dcStatusText').textContent = "Offline"; });
+function fetchLanyard(){
+  fetch(`https://api.lanyard.rest/v1/users/${UID}`)
+    .then(r=>r.json()).then(res=>{if(res.success)updateLanyard(res.data);})
+    .catch(()=>{document.getElementById('dcStatusText').textContent="Offline";});
 }
-
-function connectLanyardWS() {
-  const ws = new WebSocket("wss://api.lanyard.rest/socket");
-  ws.onopen = () => ws.send(JSON.stringify({ op: 2, d: { subscribe_to_id: DISCORD_USER_ID } }));
-  ws.onmessage = (e) => {
-    const msg = JSON.parse(e.data);
-    if (msg.op === 1) setInterval(() => { if (ws.readyState === 1) ws.send(JSON.stringify({ op: 3 })); }, msg.d.heartbeat_interval);
-    if (msg.t === "INIT_STATE" || msg.t === "PRESENCE_UPDATE") updateLanyard(msg.d);
+function connectWS(){
+  let ws;
+  try{ws=new WebSocket("wss://api.lanyard.rest/socket");}
+  catch(e){setTimeout(connectWS,5000);return;}
+  let hb;
+  ws.onopen=()=>ws.send(JSON.stringify({op:2,d:{subscribe_to_id:UID}}));
+  ws.onmessage=(e)=>{
+    try{
+      const m=JSON.parse(e.data);
+      if(m.op===1){hb=setInterval(()=>{if(ws.readyState===1)ws.send(JSON.stringify({op:3}));},m.d.heartbeat_interval);}
+      if(m.t==="INIT_STATE"||m.t==="PRESENCE_UPDATE")updateLanyard(m.d);
+    }catch(err){}
   };
-  ws.onclose = () => setTimeout(connectLanyardWS, 3000);
-  ws.onerror = () => ws.close();
+  ws.onclose=()=>{clearInterval(hb);setTimeout(connectWS,3000);};
+  ws.onerror=()=>ws.close();
 }
+fetchLanyard();setInterval(fetchLanyard,60000);connectWS();
 
-fetchLanyard();
-setInterval(fetchLanyard, 60000);
-connectLanyardWS();
+/* ── MODAL ── */
+const modal=document.getElementById('dcModal');
+function openDcModal(){modal.classList.add('open');}
+function closeDcModal(){modal.classList.remove('open');}
+modal.addEventListener('click',e=>{if(e.target===modal)closeDcModal();});
+document.getElementById('dcCloseBtn').addEventListener('click',closeDcModal);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDcModal();});
 
-function openDcModal() { document.getElementById('dcModal').classList.add('open'); }
-function closeDcModal(e) { if (e.target === document.getElementById('dcModal')) document.getElementById('dcModal').classList.remove('open'); }
-
-document.addEventListener('contextmenu', e => {
-  e.preventDefault();
-  document.getElementById('rightClickOverlay').style.display = 'flex';
-});
+/* ── RIGHT CLICK ── */
+const rc=document.getElementById('rcOverlay');
+document.addEventListener('contextmenu',e=>{e.preventDefault();rc.style.display='flex';});
+rc.addEventListener('click',()=>rc.style.display='none');
+rc.addEventListener('touchstart',()=>rc.style.display='none');
 </script>
 </body>
 </html>
