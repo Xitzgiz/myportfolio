@@ -70,8 +70,9 @@ h2 {
 }
 
 /* about */
-.greeting, .title { font-size: clamp(26px, 4vw, 60px); font-weight: 800; line-height: 1.02; letter-spacing: -0.02em; white-space: nowrap; }
+.greeting, .title { font-size: clamp(22px, 3.2vw, 46px); font-weight: 800; line-height: 1.02; letter-spacing: -0.02em; white-space: nowrap; }
 .title { margin-top: 6px; }
+.greeting { font-size: clamp(16px, 1.7vw, 24px); font-weight: 700; letter-spacing: 0; }
 .greeting span { color: var(--muted); }
 .about-body { margin-top: 36px; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: start; }
 .about-text p { max-width: 32em; }
@@ -125,7 +126,8 @@ h2 {
   .job, .row { grid-template-columns: 1fr; gap: 4px; }
   .job-when { order: 2; padding-top: 0; margin-top: 4px; }
   .stats { gap: 28px; }
-  .greeting, .title { font-size: 7vw; }
+  .greeting, .title { font-size: 6vw; }
+  .greeting { font-size: 4.2vw; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
