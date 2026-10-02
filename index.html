@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DEVXZY – Roblox developer</title>
-<meta name="description" content="DEVXZY is a Roblox developer: scripting, building and UI design for RP and hangout games.">
+<title>DEVXZY</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..900&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #E9ECEF;
@@ -15,8 +14,7 @@
   --muted: #566070;
   --rule: #C5CBD4;
   --accent: #1F4FD8;
-  --sans: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
-  --serif: 'Source Serif 4', Georgia, serif;
+  --font: 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,131 +22,99 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--serif);
-  font-size: 18px;
-  line-height: 1.65;
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 a { color: inherit; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-.layout { display: grid; grid-template-columns: 300px 1fr; min-height: 100vh; }
+.layout { display: grid; grid-template-columns: 280px 1fr; min-height: 100vh; }
 
-/* ---------- sidebar ---------- */
+/* sidebar */
 .side {
   position: sticky; top: 0;
   height: 100vh;
-  padding: 56px 40px 40px;
+  padding: 56px 36px 36px;
   display: flex; flex-direction: column; justify-content: space-between;
   border-right: 1px solid var(--rule);
 }
-.name {
-  font-family: var(--sans);
-  font-stretch: 125%;
-  font-weight: 800;
-  font-size: 34px;
-  line-height: 1;
-  letter-spacing: -0.01em;
-}
-.tag { font-family: var(--sans); font-size: 15px; color: var(--muted); margin-top: 10px; }
-.status {
-  display: flex; align-items: center; gap: 9px;
-  font-family: var(--sans); font-size: 14px; color: var(--muted);
-  margin-top: 22px;
-}
+.name { font-size: 30px; font-weight: 800; line-height: 1; letter-spacing: 0.02em; }
+.status { display: flex; align-items: center; gap: 9px; font-size: 14px; color: var(--muted); margin-top: 18px; }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: #8A93A0; flex-shrink: 0; }
 .dot.online { background: #2E9E5B; }
 .dot.idle { background: #D9A400; }
 .dot.dnd { background: #D23B3B; }
 
-.tree { margin-top: 56px; font-family: var(--sans); font-size: 15px; }
-.tree-root { display: block; color: var(--muted); margin-bottom: 6px; }
+.tree { margin-top: 48px; font-size: 15px; }
 .tree ul { list-style: none; margin-left: 5px; border-left: 1px solid var(--rule); }
-.tree a {
-  display: block; text-decoration: none;
-  padding: 6px 12px; margin-left: 10px;
-  color: var(--ink);
-}
+.tree a { display: block; text-decoration: none; padding: 6px 12px; margin-left: 10px; }
 .tree a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .tree a.active { background: var(--accent); color: #fff; text-decoration: none; }
 
-.side-foot { font-family: var(--sans); font-size: 13px; color: var(--muted); }
+.side-foot { font-size: 12px; color: var(--muted); line-height: 1.5; }
+.side-foot p + p { margin-top: 2px; }
 
-/* ---------- content ---------- */
-main { padding: 72px clamp(28px, 7vw, 96px) 120px; max-width: 880px; }
+/* content */
+main { padding: 72px clamp(28px, 7vw, 96px) 120px; max-width: 900px; }
 section { scroll-margin-top: 48px; }
 section + section { margin-top: 128px; }
 
 h2 {
-  font-family: var(--sans);
-  font-weight: 700;
-  font-size: 15px;
-  color: var(--muted);
-  padding-bottom: 14px;
-  margin-bottom: 36px;
-  border-bottom: 1px solid var(--rule);
+  font-size: clamp(34px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin-bottom: 44px;
 }
 
-.lead {
-  font-family: var(--sans);
-  font-stretch: 100%;
-  font-weight: 700;
-  font-size: clamp(32px, 4.6vw, 54px);
-  line-height: 1.06;
-  letter-spacing: -0.02em;
-  max-width: 15em;
-}
+/* about */
+.greeting { color: var(--muted); }
+.greeting b { color: var(--ink); font-weight: 700; }
+.title { font-size: clamp(44px, 7vw, 88px); font-weight: 800; line-height: 0.95; letter-spacing: -0.015em; margin-top: 14px; }
 .about-body { margin-top: 36px; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: start; }
-.about-text p { max-width: 34em; }
+.about-text p { max-width: 32em; }
 .about-text p + p { margin-top: 1em; }
 .portrait { width: 168px; aspect-ratio: 3 / 4; object-fit: cover; filter: grayscale(1) contrast(1.05); display: block; }
+.stats { display: flex; gap: 44px; flex-wrap: wrap; margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--rule); }
+.stat-num { display: block; font-size: 30px; font-weight: 700; line-height: 1.1; }
+.stat-label { font-size: 14px; color: var(--muted); }
 
 /* experience */
-.job {
-  display: grid; grid-template-columns: 190px 1fr; gap: 24px;
-  padding: 22px 0;
-  border-bottom: 1px solid var(--rule);
-}
-.job:first-of-type { padding-top: 0; }
-.job-when { font-family: var(--sans); font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 5px; }
-.job-co { font-family: var(--sans); font-weight: 700; font-size: 22px; line-height: 1.2; letter-spacing: -0.01em; }
-.job-role { color: var(--muted); font-style: italic; margin-top: 2px; }
+.job { display: grid; grid-template-columns: 200px 1fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--rule); }
+.job:first-of-type { border-top: 1px solid var(--rule); }
+.job-when { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 3px; }
+.job-co { font-weight: 700; font-size: 20px; line-height: 1.2; }
+.job-role { color: var(--muted); font-size: 15px; margin-top: 3px; }
 .exp-note { margin-top: 28px; color: var(--muted); }
 
 /* expertise */
-.skill { display: grid; grid-template-columns: 190px 1fr; gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
-.skill:first-of-type { padding-top: 0; }
-.skill dt { font-family: var(--sans); font-weight: 700; font-size: 18px; }
-.skill dd { color: var(--muted); }
-.roles { margin-top: 28px; }
+.skill { padding: 18px 0; border-bottom: 1px solid var(--rule); font-size: 18px; }
+.skill:first-of-type { border-top: 1px solid var(--rule); }
+.skills-block { margin-top: 36px; }
+.skills-label { font-size: 14px; color: var(--muted); margin-bottom: 8px; }
+.skills-list { font-weight: 600; }
 
 /* contact */
-.contact-lead { font-family: var(--sans); font-weight: 700; font-size: clamp(28px, 3.6vw, 42px); line-height: 1.1; letter-spacing: -0.02em; max-width: 14em; }
+.contact-sub { color: var(--muted); max-width: 30em; margin-top: -16px; }
 .contact-list { margin-top: 40px; }
 .row {
-  display: grid; grid-template-columns: 190px 1fr; gap: 24px; align-items: baseline;
-  width: 100%;
-  padding: 18px 0;
+  display: grid; grid-template-columns: 200px 1fr; gap: 24px; align-items: baseline;
+  width: 100%; padding: 18px 0;
   border: 0; border-bottom: 1px solid var(--rule);
   background: none; text-align: left; cursor: pointer;
   font: inherit; color: inherit; text-decoration: none;
 }
 .row:first-child { border-top: 1px solid var(--rule); }
-.row-label { font-family: var(--sans); font-size: 14px; color: var(--muted); }
-.row-value { font-family: var(--sans); font-weight: 600; font-size: 19px; word-break: break-word; }
+.row-label { font-size: 14px; color: var(--muted); }
+.row-value { font-weight: 600; font-size: 19px; word-break: break-word; }
 .row:hover .row-value { color: var(--accent); text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
 
-/* ---------- small screens ---------- */
 @media (max-width: 860px) {
-  body { font-size: 17px; }
   .layout { display: block; }
-  .side {
-    position: static; height: auto;
-    padding: 28px 24px 0;
-    border-right: 0;
-  }
-  .tree { margin-top: 24px; }
-  .tree-root { display: none; }
+  .side { position: static; height: auto; padding: 28px 24px 0; border-right: 0; }
+  .tree { margin-top: 22px; }
   .tree ul { display: flex; gap: 4px; border-left: 0; margin-left: -12px; overflow-x: auto; }
   .tree a { margin-left: 0; white-space: nowrap; }
   .side-foot { display: none; }
@@ -156,13 +122,11 @@ h2 {
   section + section { margin-top: 88px; }
   .about-body { grid-template-columns: 1fr; }
   .portrait { width: 132px; order: -1; }
-  .job, .skill, .row { grid-template-columns: 1fr; gap: 4px; }
-  .job-when { padding-top: 0; order: 2; margin-top: 4px; }
+  .job, .row { grid-template-columns: 1fr; gap: 4px; }
+  .job-when { order: 2; padding-top: 0; margin-top: 4px; }
+  .stats { gap: 28px; }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
@@ -172,11 +136,9 @@ h2 {
   <aside class="side">
     <div>
       <h1 class="name">DEVXZY</h1>
-      <p class="tag">Roblox developer</p>
-      <p class="status" aria-live="polite"><span class="dot" id="dot"></span><span id="status-text">Checking Discord…</span></p>
+      <p class="status"><span class="dot" id="dot"></span><span id="status-text">Connecting...</span></p>
 
       <nav class="tree" aria-label="Sections">
-        <span class="tree-root">▾ Workspace</span>
         <ul>
           <li><a href="#about" class="active">About</a></li>
           <li><a href="#experience">Experience</a></li>
@@ -185,66 +147,71 @@ h2 {
         </ul>
       </nav>
     </div>
-    <p class="side-foot">© 2026 DEVXZY. All rights reserved.</p>
+    <div class="side-foot">
+      <p>© 2025 DEVXZY All Right Reserved.</p>
+      <p>My Portfolio</p>
+    </div>
   </aside>
 
   <main>
 
     <section id="about">
-      <h2>About</h2>
-      <p class="lead">I script, build and design the UI for Roblox games.</p>
+      <p class="greeting">Hello, I'm <b>DEVXZY</b></p>
+      <h1 class="title">ROBLOX DEVELOPER</h1>
       <div class="about-body">
         <div class="about-text">
-          <p>I’ve been developing for almost a year, mostly on RP and hangout games. I do the systems, the maps and the HUDs players see on screen.</p>
-          <p>I like learning new things, especially trying out different game genres to widen what I can build. So far: 4 projects done and 3 happy clients.</p>
+          <p>I’ve been developing for almost 1 year, gaining experience in game development and improving my skills.</p>
+          <p>I’m passionate about learning new things, especially exploring different game genres to expand my knowledge and creativity.</p>
         </div>
-        <!-- Put your photo at assets/photo.jpg. If it's missing, this just hides itself. -->
         <img class="portrait" src="assets/photo.jpg" alt="DEVXZY" onerror="this.remove()">
+      </div>
+      <div class="stats">
+        <div><span class="stat-num">1+</span><span class="stat-label">Years of Experience</span></div>
+        <div><span class="stat-num">4</span><span class="stat-label">Projects Done</span></div>
+        <div><span class="stat-num">3</span><span class="stat-label">Happy Clients</span></div>
       </div>
     </section>
 
     <section id="experience">
-      <h2>Experience</h2>
-
+      <h2>EXPERIENCE</h2>
       <div class="job">
-        <div class="job-when">Feb 20 – Apr 5, 2026</div>
-        <div><div class="job-co">Skyline City RP</div><div class="job-role">Scripter</div></div>
+        <div class="job-when">4/11/25 TO 10/9/25</div>
+        <div><div class="job-co">STIM CITY RP</div><div class="job-role">LEAD DEVELOPER</div></div>
       </div>
       <div class="job">
-        <div class="job-when">Oct 16 – Nov 12, 2025</div>
-        <div><div class="job-co">Echoes of Heaven</div><div class="job-role">Builder / scripter</div></div>
+        <div class="job-when">10/16/25 TO 11/12/25</div>
+        <div><div class="job-co">ECHOES OF HEAVEN</div><div class="job-role">BUILDER / SCRIPTER</div></div>
       </div>
       <div class="job">
-        <div class="job-when">Sep 30, 2025 – Jan 1, 2026</div>
-        <div><div class="job-co">The Billionaire City RP</div><div class="job-role">Builder / scripter / UI designer</div></div>
+        <div class="job-when">9/30/25 TO 1/1/26</div>
+        <div><div class="job-co">THE BILLIONAIRE CITY RP</div><div class="job-role">BUILDER / SCRIPTER / UI DESIGNER</div></div>
       </div>
       <div class="job">
-        <div class="job-when">Apr 11 – Oct 9, 2025</div>
-        <div><div class="job-co">Stim City RP</div><div class="job-role">Lead developer</div></div>
+        <div class="job-when">2/20/26 TO 4/5/26</div>
+        <div><div class="job-co">SKYLINE CITY RP</div><div class="job-role">SCRIPTER</div></div>
       </div>
-
-      <p class="exp-note">I learned a lot from all of that.</p>
+      <p class="exp-note">I learned a lot from all of that..</p>
     </section>
 
     <section id="expertise">
-      <h2>Expertise</h2>
-      <dl>
-        <div class="skill"><dt>RP systems</dt><dd>Jobs, roleplay mechanics and the scripts that tie them together.</dd></div>
-        <div class="skill"><dt>Hangout systems</dt><dd>Social features for hangout-style games.</dd></div>
-        <div class="skill"><dt>Game HUDs</dt><dd>Hunger, health, armor, top bar and more.</dd></div>
-        <div class="skill"><dt>Builds</dt><dd>Houses, mansions, custom maps, custom buildings and more.</dd></div>
-      </dl>
-      <p class="roles">Builder, scripter, UI designer.</p>
+      <h2>EXPERTISE</h2>
+      <div class="skill">RP SYSTEM</div>
+      <div class="skill">HANGOUT SYSTEM</div>
+      <div class="skill">GAME HUD - HUNGER / HEALTH / ARMOR / TOP BAR / OTHERS.</div>
+      <div class="skill">BUILD - HOUSE / MANSION / CUSTOM MAP / CUSTOM BUILDING / OTHERS.</div>
+      <div class="skills-block">
+        <p class="skills-label">SKILLS</p>
+        <p class="skills-list">BUILDER, SCRIPTER, UI DESIGNER</p>
+      </div>
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
-      <p class="contact-lead">Available for Roblox projects, full-time work and collabs.</p>
-
+      <h2>LET'S WORK TOGETHER</h2>
+      <p class="contact-sub">Available for Roblox Projects, full-time &amp; collaborations. Hit me up on any of these platforms.</p>
       <div class="contact-list">
         <button class="row" id="discord-row" type="button">
           <span class="row-label">Discord</span>
-          <span class="row-value" id="discord-value">Message me on Discord</span>
+          <span class="row-value" id="discord-value">Loading...</span>
         </button>
         <a class="row" href="https://www.tiktok.com/@dfwcxt" target="_blank" rel="noopener">
           <span class="row-label">TikTok</span>
@@ -261,9 +228,8 @@ h2 {
 </div>
 
 <script>
-/* ---- active section in the sidebar ---- */
+/* active section in sidebar */
 const links = [...document.querySelectorAll('.tree a')];
-const sections = links.map(a => document.querySelector(a.getAttribute('href')));
 const spy = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -271,9 +237,9 @@ const spy = new IntersectionObserver(entries => {
     }
   });
 }, { rootMargin: '-35% 0px -55% 0px' });
-sections.forEach(s => s && spy.observe(s));
+links.forEach(a => { const s = document.querySelector(a.getAttribute('href')); if (s) spy.observe(s); });
 
-/* ---- Discord status via Lanyard ---- */
+/* Discord status via Lanyard */
 const DISCORD_USER_ID = '1497283975444566116';
 const dot = document.getElementById('dot');
 const statusText = document.getElementById('status-text');
@@ -282,10 +248,10 @@ const discordRow = document.getElementById('discord-row');
 let handle = '';
 
 const statusLabels = {
-  online: 'Online on Discord',
-  idle: 'Idle on Discord',
-  dnd: 'Busy on Discord',
-  offline: 'Offline on Discord'
+  online: 'Currently Online',
+  idle: 'Currently Idle',
+  dnd: 'Currently Do Not Disturb',
+  offline: 'Currently Offline'
 };
 
 function applyData(d) {
@@ -295,8 +261,7 @@ function applyData(d) {
   const act = d.activities && d.activities.find(a => a.type !== 4);
   const custom = d.activities && d.activities.find(a => a.type === 4);
   if (act) {
-    const verb = act.type === 0 ? 'Playing ' : act.type === 2 ? 'Listening to ' : '';
-    statusText.textContent = verb + act.name;
+    statusText.textContent = (act.type === 0 ? 'Playing ' : act.type === 2 ? 'Listening to ' : '') + act.name;
   } else if (custom && custom.state) {
     statusText.textContent = custom.state;
   } else {
@@ -311,8 +276,8 @@ function applyData(d) {
 
 fetch('https://api.lanyard.rest/v1/users/' + DISCORD_USER_ID)
   .then(r => r.json())
-  .then(j => { if (j.success) applyData(j.data); else statusText.textContent = 'Discord'; })
-  .catch(() => { statusText.textContent = 'Discord'; });
+  .then(j => { if (j.success) applyData(j.data); else { statusText.textContent = 'Discord'; discordValue.textContent = '—'; } })
+  .catch(() => { statusText.textContent = 'Discord'; discordValue.textContent = '—'; });
 
 function connectWS() {
   const ws = new WebSocket('wss://api.lanyard.rest/socket');
@@ -330,12 +295,12 @@ function connectWS() {
 }
 connectWS();
 
-/* ---- copy Discord handle ---- */
+/* copy Discord handle */
 discordRow.addEventListener('click', () => {
-  if (!handle) { window.open('https://discord.com/', '_blank', 'noopener'); return; }
+  if (!handle) return;
   const done = () => {
-    discordValue.textContent = 'Copied @' + handle;
-    setTimeout(() => { discordValue.textContent = '@' + handle; }, 1600);
+    discordValue.textContent = 'Copied';
+    setTimeout(() => { discordValue.textContent = '@' + handle; }, 1400);
   };
   if (navigator.clipboard) navigator.clipboard.writeText(handle).then(done).catch(() => {});
 });
