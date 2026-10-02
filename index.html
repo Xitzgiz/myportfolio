@@ -70,9 +70,9 @@ h2 {
 }
 
 /* about */
-.greeting { color: var(--muted); }
-.greeting b { color: var(--ink); font-weight: 700; }
-.title { font-size: clamp(44px, 7vw, 88px); font-weight: 800; line-height: 0.95; letter-spacing: -0.015em; margin-top: 14px; }
+.greeting, .title { font-size: clamp(26px, 4vw, 60px); font-weight: 800; line-height: 1.02; letter-spacing: -0.02em; white-space: nowrap; }
+.title { margin-top: 6px; }
+.greeting span { color: var(--muted); }
 .about-body { margin-top: 36px; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: start; }
 .about-text p { max-width: 32em; }
 .about-text p + p { margin-top: 1em; }
@@ -125,6 +125,7 @@ h2 {
   .job, .row { grid-template-columns: 1fr; gap: 4px; }
   .job-when { order: 2; padding-top: 0; margin-top: 4px; }
   .stats { gap: 28px; }
+  .greeting, .title { font-size: 7vw; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
@@ -156,8 +157,8 @@ h2 {
   <main>
 
     <section id="about">
-      <p class="greeting">Hello, I'm <b>DEVXZY</b></p>
-      <h1 class="title">ROBLOX DEVELOPER</h1>
+      <p class="greeting"><span>Hello, I'm</span> DEVXZY</p>
+      <p class="title">ROBLOX DEVELOPER</p>
       <div class="about-body">
         <div class="about-text">
           <p>I’ve been developing for almost 1 year, gaining experience in game development and improving my skills.</p>
